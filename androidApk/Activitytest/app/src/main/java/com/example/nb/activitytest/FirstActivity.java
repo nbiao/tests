@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ButtonBarLayout;
 import android.util.Log;
@@ -43,14 +44,14 @@ public class FirstActivity extends AppCompatActivity {
                                        public void onClick(View v) {
                                            //Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                                            //Uri uri = Uri.parse("https://www.baidu.com");
-                                          // Intent intent = new Intent(Intent.ACTION_VIEW);
+                                           // Intent intent = new Intent(Intent.ACTION_VIEW);
                                            //intent.setData(Uri.parse("tel:18066032729"));
                                            Intent intent = new Intent(FirstActivity.this, ThirdActivity.class);
                                            String data = "hello third activity";
                                            intent.putExtra("extra_data", data);
                                            //hasBrowser(FirstActivity.this);
                                            try {
-                                               startActivity(intent);
+                                               startActivityForResult(intent, 1);
                                            } catch (Exception a) {
                                                a.getMessage();
                                            }
@@ -89,5 +90,18 @@ public class FirstActivity extends AppCompatActivity {
             default:
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String resultData = data.getStringExtra("data_return");
+                    Log.d("nb", resultData);
+                }
+                break;
+            default:
+        }
     }
 }
