@@ -36,7 +36,7 @@ public class FirstActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         setContentView(R.layout.first_layout);
-        Log.d("nb", "onCreat run");
+        Log.d("FirstActivity", "Task id is " + getTaskId());
 
         Button button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -46,12 +46,12 @@ public class FirstActivity extends AppCompatActivity {
                                            //Uri uri = Uri.parse("https://www.baidu.com");
                                            // Intent intent = new Intent(Intent.ACTION_VIEW);
                                            //intent.setData(Uri.parse("tel:18066032729"));
-                                           Intent intent = new Intent(FirstActivity.this, ThirdActivity.class);
+                                           Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
                                            String data = "hello third activity";
                                            intent.putExtra("extra_data", data);
                                            //hasBrowser(FirstActivity.this);
                                            try {
-                                               startActivityForResult(intent, 1);
+                                               startActivity(intent);
                                            } catch (Exception a) {
                                                a.getMessage();
                                            }
@@ -103,5 +103,10 @@ public class FirstActivity extends AppCompatActivity {
                 break;
             default:
         }
+    }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity", "onRestart");
     }
 }

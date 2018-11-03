@@ -21,6 +21,8 @@ public class ThirdActivity extends AppCompatActivity {
         }
         setContentView(R.layout.third_layout);
         final Intent intent = getIntent();
+        Log.d("ThirdActivity", "Task id is " + getTaskId());
+
         String data = intent.getStringExtra("extra_data");
         Log.d("nb", "extraData:"+data);
 
