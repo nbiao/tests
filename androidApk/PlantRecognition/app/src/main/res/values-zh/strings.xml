@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">遇见植物</string>
+    <string name="title_about">关于</string>
+    <string name="title_camera">相机</string>
+    <string name="title_album">相册</string>
+    <string name="title_recognize">识别</string>
+    <string name="title_error">错误</string>
+    <string name="image_error">图片加载失败</string>
+    <string name="recognize_failed">识别失败</string>
+    <string name="recognizing">努力识别中......</string>
+    <string name="may_be">可能是:</string>
+    <string name="permission_denied">没有权限</string>
+    <string name="get_image_failed">获取图片失败</string>
+    <string name="prompt_new_software">检测到新软件，是否升级？</string>
+    <string name="title_ok">确定</string>
+    <string name="title_cancel">取消</string>
+    <string name="title_software_update">软件升级</string>
+    <string name="prompt_downloading">下载中......</string>
+</resources>
