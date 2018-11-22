@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,11 +18,12 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
                         List<Fruit> objects) {
         super(context, textViewResourceId, objects);
         resourceId = textViewResourceId;
+
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Fruit fruit = getItem(position); // 获取当前项的Fruit实例
+        final Fruit fruit = getItem(position); // 获取当前项的Fruit实例
         View view;
         ViewHolder viewHolder;
         if (convertView == null) {
@@ -35,6 +37,12 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.fruitImage.setImageResource(fruit.getImageId());
+        viewHolder.fruitImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "fruit:"+fruit.getName()+"nb", Toast.LENGTH_SHORT).show();
+            }
+        });
         viewHolder.fruitName.setText(fruit.getName());
         return view;
     }
